@@ -10,7 +10,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2008-10-26 00:00:00 +01:00
+date: 2008-10-25 19:00:00 -04:00
 default_executable: 
 dependencies: []
 
@@ -76,6 +76,8 @@ files:
 - test/view_test.rb
 has_rdoc: true
 homepage: http://github.com/mislav/will_paginate/wikis
+licenses: []
+
 post_install_message: 
 rdoc_options: 
 - --main
@@ -83,6 +85,7 @@ rdoc_options:
 - --inline-source
 - --charset=UTF-8
 require_paths: 
+- bin
 - lib
 required_ruby_version: !ruby/object:Gem::Requirement 
   requirements: 
@@ -99,7 +102,7 @@ required_rubygems_version: !ruby/object:Gem::Requirement
 requirements: []
 
 rubyforge_project: 
-rubygems_version: 1.2.0
+rubygems_version: 1.3.4
 signing_key: 
 specification_version: 2
 summary: Most awesome pagination solution for Rails

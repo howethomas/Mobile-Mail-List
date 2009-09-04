@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @coupon.name %>
+</p>
+
+<p>
+  <b>Qty:</b>
+  <%=h @coupon.qty %>
+</p>
+
+<p>
+  <b>Http link:</b>
+  <%=h @coupon.http_link %>
+</p>
+
+<p>
+  <b>Unique:</b>
+  <%=h @coupon.unique %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%=h @coupon.site_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_coupon_path(@coupon) %> |
+<%= link_to 'Back', coupons_path %>
