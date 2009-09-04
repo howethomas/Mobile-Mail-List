@@ -1,0 +1,19 @@
+<h1>New subscriber</h1>
+
+<% form_for(@subscriber) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :callerid %><br />
+    <%= f.text_field :callerid %>
+  </p>
+  <p>
+    <%= f.label :site_id %><br />
+    <%= f.text_field :site_id %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', subscribers_path %>

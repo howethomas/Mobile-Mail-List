@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  type: MyString
+  subscriber_id: 1
+  coupon_id: 1
+
+two:
+  type: MyString
+  subscriber_id: 1
+  coupon_id: 1

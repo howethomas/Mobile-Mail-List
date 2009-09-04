@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080929171348) do
+ActiveRecord::Schema.define(:version => 20090903203206) do
+
+  create_table "coupons", :force => true do |t|
+    t.string   "name"
+    t.integer  "qty"
+    t.string   "http_link"
+    t.boolean  "unique"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "site_id"
+  end
 
   create_table "open_id_authentication_associations", :force => true do |t|
     t.integer "issued"
@@ -43,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20080929171348) do
     t.integer "user_id"
   end
 
+  create_table "scripts", :force => true do |t|
+    t.string   "script_url"
+    t.integer  "use_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -52,6 +69,28 @@ ActiveRecord::Schema.define(:version => 20080929171348) do
 
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+
+  create_table "sites", :force => true do |t|
+    t.string   "name"
+    t.integer  "script_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscribers", :force => true do |t|
+    t.string   "callerid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "site_id"
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.string   "type"
+    t.integer  "subscriber_id"
+    t.integer  "coupon_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

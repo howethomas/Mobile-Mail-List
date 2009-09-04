@@ -1,0 +1,20 @@
+<h1>Editing subscriber</h1>
+
+<% form_for(@subscriber) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :callerid %><br />
+    <%= f.text_field :callerid %>
+  </p>
+  <p>
+    <%= f.label :site_id %><br />
+    <%= f.text_field :site_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @subscriber %> |
+<%= link_to 'Back', subscribers_path %>

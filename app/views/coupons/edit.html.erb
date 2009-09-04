@@ -1,0 +1,32 @@
+<h1>Editing coupon</h1>
+
+<% form_for(@coupon) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :qty %><br />
+    <%= f.text_field :qty %>
+  </p>
+  <p>
+    <%= f.label :http_link %><br />
+    <%= f.text_field :http_link %>
+  </p>
+  <p>
+    <%= f.label :unique %><br />
+    <%= f.check_box :unique %>
+  </p>
+  <p>
+    <%= f.label :site_id %><br />
+    <%= f.text_field :site_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @coupon %> |
+<%= link_to 'Back', coupons_path %>

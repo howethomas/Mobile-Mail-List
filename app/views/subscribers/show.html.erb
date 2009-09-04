@@ -1,0 +1,13 @@
+<p>
+  <b>Callerid:</b>
+  <%=h @subscriber.callerid %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%=h @subscriber.site_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_subscriber_path(@subscriber) %> |
+<%= link_to 'Back', subscribers_path %>
