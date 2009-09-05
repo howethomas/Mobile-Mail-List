@@ -1,0 +1,41 @@
+!!! Transitional
+%html
+  %head
+    %meta{"http-equiv" => "content-type", :content => "text/html;charset=UTF-8"}
+    - if controller.action_name == "index" and controller.controller_name == "agent"
+      %meta{"http-equiv" => "Refresh", :content => "10"}
+    %title= "Mobile Mail List : #{controller.action_name}"
+    = stylesheet_link_tag "style"  
+    = javascript_include_tag :defaults    
+  %body
+  #container
+    #header
+      %h1 Mobile Mail List
+  
+    - if logged_in?
+      #sub_header
+        = link_to "Home |", :controller => "admin", :action => "index"
+        = link_to "Subscribers |", :controller => "admin", :action => "status"
+        = link_to "Campaigns |", :controller => "admin", :action => "options"
+        = link_to "Coupons |", :controller => "admin", :action => "options"
+        = link_to "Help |", :controller => "admin", :action => "help"
+        = logout 
+    #main_content_top
+      .flash-notice{:style => "color: green"}= flash[:notice]
+      .flash-error{ :style => "color: red"  }= flash[:error]
+         
+    = yield
+    #footer
+      %span.powered-by
+        %small_text= mail_to("ticket+thomashowe.16407-gy6zcfpk@lighthouseapp.com", "Found a bug?", :cc => "howethomas@aol.com")
+        |
+        Powered by
+        %a{:href => "http://rubyonrails.org"} Rails
+        and
+        %a{:href => "http://www.thethomashowecompany.com"} Howe
+        | 
+        %span.logout= logout
+        |
+        %a{:href => root_url} Home
+        |
+        %small_text= "logged in as #{current_user.login}" if logged_in?
