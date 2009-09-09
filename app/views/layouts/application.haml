@@ -14,10 +14,10 @@
   
     - if logged_in?
       #sub_header
-        = link_to "Home |", :controller => "admin", :action => "index"
-        = link_to "Subscribers |", :controller => "admin", :action => "status"
+        = link_to "Home |", :controller => "dashboard", :action => "index"
+        = link_to "Subscribers |", :controller => "subscriber", :action => "index"
         = link_to "Campaigns |", :controller => "admin", :action => "options"
-        = link_to "Coupons |", :controller => "admin", :action => "options"
+        = link_to "Coupons |", :controller => "coupons", :action => "index"
         = link_to "Help |", :controller => "admin", :action => "help"
         = logout 
     #main_content_top

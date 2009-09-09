@@ -1,0 +1,21 @@
+%h1 Listing coupons
+
+%table
+  %table
+    %tr
+      %th Name
+      %th Quantity
+      %th Link
+      %th Unique?
+    - for coupon in @coupons
+      %tr
+        %td= "#{coupon.name}"
+        %td= "#{coupon.qty}"
+        %td= "#{coupon.http_link}"
+        %td= "#{coupon.unique}"
+        %td
+          = link_to "Show |", :action => "show", :id => coupon.id
+          = link_to "Edit |", :action => "edit", :id => coupon.id
+          = link_to "Delete", coupon_path(coupon), :confirm => 'Are you sure?', :method => :delete, :confirm => "Are you sure?", :method => :delete
+        
+= link_to 'New coupon', new_coupon_path

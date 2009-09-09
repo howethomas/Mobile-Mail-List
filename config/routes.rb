@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :subscribers
-
   map.resources :coupons
  
   # Restful Authentication Rewrites

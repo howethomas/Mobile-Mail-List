@@ -1,0 +1,18 @@
+%h1 Listing Subscribers
+
+%table
+  %table
+    %tr
+      %th CallerID
+      %th Site
+    - for subscriber in @subscribers
+      %tr
+        %td= "#{subscriber.callerid}"
+        %td= "#{subscriber.site_id}"
+        %td
+          = link_to "Show |", :action => "show", :id => subscriber.id
+          = link_to "Edit |", :action => "edit", :id => subscriber.id
+          = link_to "Delete", subscriber_path(subscriber), :confirm => 'Are you sure?', :method => :delete, :confirm => "Are you sure?", :method => :delete
+        
+= link_to 'New subscriber', new_subscriber_path
+
