@@ -77,20 +77,19 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # Please note that observers generated using script/generate observer need to have an _observer suffix
-  config.active_record.observers = :user_observer
-  
-  # Setup the outbound mail server. I used a test google mail account
-  require "smtp_tls"
-
-  ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.server_settings = {
-    :address  => "smtp.gmail.com",
-    :port  => 587, 
-    :domain => 'gmail.com',
-    :user_name  => "mobilemail@gmail.com",
-    :password  => "mobilemail",
-    :authentication  => :plain
-  }
-  
+  config.active_record.observers = :user_observer  
 end
+
+# Setup the outbound mail server. I used a test google mail account
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address  => "smtp.gmail.com",
+  :port  => 587, 
+  :domain => 'gmail.com',
+  :user_name  => "mobilemail@gmail.com",
+  :password  => "mobilemail",
+  :authentication  => :plain
+}
+
+
