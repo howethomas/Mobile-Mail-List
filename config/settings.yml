@@ -1,17 +1,17 @@
 development: &non_production_settings
-  site_url: http://localhost:3000
-  site_name: Bort
-  admin_email: bort@bort.com
+  site_url: http://localhost:7777
+  site_name: MobileMailList
+  admin_email: howethomas@aol.com
   
 test:
   <<: *non_production_settings
 
 staging:
-  site_url: http://staging.example.com
-  site_name: Bort
-  admin_email: bort@bort.com  
+  site_url: http://mobilemaillist.heroku.com
+  site_name: MobileMailList
+  admin_email: howethomas@aol.com  
   
 production:
-  site_url: http://www.example.com
-  site_name: Bort
-  admin_email: bort@bort.com
+  site_url: http://mobilemaillist.heroku.com
+  site_name: MobileMailList
+  admin_email: howethomas@aol.com
