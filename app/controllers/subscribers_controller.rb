@@ -40,8 +40,13 @@ class SubscribersController < ApplicationController
   # POST /subscribers
   # POST /subscribers.xml
   def create
+    puts params.inspect
+#    puts request.session.inspect
+#    puts request.parameters.inspect
+    puts request.env.inspect
+    
     @subscriber = Subscriber.new(params[:subscriber])
-
+    
     respond_to do |format|
       if @subscriber.save
         flash[:notice] = 'Subscriber was successfully created.'
