@@ -84,11 +84,11 @@ end
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  :address  => "smtp.gmail.com",
-  :port  => 587, 
-  :domain => 'gmail.com',
-  :user_name  => "mobilemail@gmail.com",
-  :password  => "mobilemail",
+  :address  => "mail.authsmtp.com",
+  :port  => 2525, 
+  :domain => 'authsmtp.com',
+  :user_name  => "ac44569",
+  :password  => "fsfq4qdnr",
   :authentication  => :plain
 }
 
