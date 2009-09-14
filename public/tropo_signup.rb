@@ -28,7 +28,7 @@ begin
       phone, and receive ten percent off all future purchases. Thanks for shopping at William Hows hat store."
       
     result = ask "Need a phone number to register. Hit me", options
-    say "Thanks for that. #{result} will be registered."
+    say "Thanks for that. #{result.value} will be registered."
     wait 10000
   end
   hangup
