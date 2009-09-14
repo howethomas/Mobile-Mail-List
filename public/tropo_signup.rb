@@ -29,6 +29,7 @@ begin
       
     result = ask "Need a phone number to register. Hit me", options
     say "Thanks for that. #{result} will be registered."
+    wait 10000
   end
   hangup
 
