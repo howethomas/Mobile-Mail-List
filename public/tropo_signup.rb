@@ -6,6 +6,8 @@ begin
   
   SITE_ID = 1
   
+  options = { "silenceTimeout" => 30.0 }
+  
   def is_phone callerID
     # Wow, is this ugly.  This is a regex expression that will tell us if the call is coming from a North American phone
     # number. It will match true if it does, otherwise not. 
@@ -25,7 +27,7 @@ begin
     say "Hey, chatter. Thanks for signing up for our preferred customer program. You will receive exclusive savings offers to your mobile 
       phone, and receive ten percent off all future purchases. Thanks for shopping at William Hows hat store."
       
-    result = ask "Need a phone number to register. Hit me"
+    result = ask "Need a phone number to register. Hit me", options
     say "Thanks for that. #{result} will be registered."
   end
   hangup
