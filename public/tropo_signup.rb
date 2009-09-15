@@ -6,7 +6,7 @@ begin
   
   SITE_ID = 1
   
-  options = { "silenceTimeout" => 30.0 }
+  options = { "silenceTimeout" => 30.0, :choices => '[7-10 DIGITS]' }  
   
   def is_phone callerID
     # Wow, is this ugly.  This is a regex expression that will tell us if the call is coming from a North American phone
@@ -24,12 +24,10 @@ begin
     say "Thanks for signing up for our preferred customer program. You will receive exclusive savings offers to your mobile 
       phone, and receive ten percent off all future purchases. Thanks for shopping at William Hows hat store. Good bye and good luck."
   else
-    say "Hey, chatter. Thanks for signing up for our preferred customer program. You will receive exclusive savings offers to your mobile 
-      phone, and receive ten percent off all future purchases. Thanks for shopping at William Hows hat store."
-      
-    result = ask "Need a phone number to register. Hit me", options
-    say "Thanks for that. #{result.value} will be registered."
-    wait 10000
+      result=ask 'Please enter your 7 to 10 digit U.S. phone number', options 
+      if result.name=='choice' 
+        say 'Thank you, you said ' + result.value 
+      end 
   end
   hangup
 
