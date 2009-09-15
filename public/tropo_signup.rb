@@ -46,6 +46,7 @@ begin
     caller_id = result.value
   end
 
+  log "Adding #{caller_id} to the mobile mail list."
   res = Net::HTTP.post_form(URI.parse('http://mobilemaillist.heroku.com/subscribers.xml'), {"subscriber[site_id]" => SITE_ID.to_s, "subscriber[callerid]" => caller_id})
 
   say "Thanks for signing up for our preferred customer program. You will receive exclusive savings offers to your mobile \
@@ -56,3 +57,4 @@ rescue Exception => e
   log e.inspect
   log e.backtrace
 end
+
