@@ -14,5 +14,13 @@ class ApplicationController < ActionController::Base
   def record_not_found
     render :file => File.join(RAILS_ROOT, 'public', '404.html'), :status => 404
   end
+  
+  def send_text_message msg, to_number, caller_id = "UNKNOWN"
+    RAILS_DEFAULT_LOGGER.info("Sending a message to #{to_number}")
+    a=Clickatell.new(caller_id,to_number,msg)
+    a.login!
+    a.send!
+  end
+  
 end
 
