@@ -91,5 +91,3 @@ ActionMailer::Base.smtp_settings = {
   :password  => "fsfq4qdnr",
   :authentication  => :plain
 }
-
-

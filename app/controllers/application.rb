@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
   end
   
   def send_text_message msg, to_number, caller_id = "UNKNOWN"
-   
     to_number = "1"+to_number if to_number[0].chr != "1"
     RAILS_DEFAULT_LOGGER.info("Sending a message to #{to_number}")
     a=Clickatell.new(caller_id,to_number,msg)
