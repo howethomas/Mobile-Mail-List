@@ -1,0 +1,27 @@
+<h1>Coupons</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Site</th>
+	<th>Code</th>
+	<th>Subscriber ID</th>
+  </tr>
+
+<% for coupon in @coupons %>
+  <tr>
+    <td><%=h coupon.name %></td>
+    <td><%=h coupon.qty %></td>
+    <td><%=h coupon.site_id %></td>
+    <td><%=h coupon.coupon_code %></td>
+    <td><%=h coupon.subscriber_id %></td>
+    <td><%= link_to 'Show', coupon %></td>
+    <td><%= link_to 'Edit', edit_coupon_path(coupon) %></td>
+    <td><%= link_to 'Destroy', coupon, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @coupons %> <%= button_to 'New coupon', new_coupon_path %>
+
+

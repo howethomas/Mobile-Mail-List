@@ -91,3 +91,33 @@ ActionMailer::Base.smtp_settings = {
   :password  => "fsfq4qdnr",
   :authentication  => :plain
 }
+
+class ActiveRecord::Base
+  def add_app_info msg, controller = "None", site = 1, severity = "normal"
+      info = AppInfo.new
+      info.msg = msg
+      info.controller = controller
+      info.site = site
+      info.severity = severity
+      info.save
+  end
+  def after_create  
+    add_app_info("#{self.class} : #{self.to_s} created") if track? self
+  end
+  def after_destroy  
+    add_app_info("#{self.class}  #{self.to_s} destroyed") if track? self
+    super
+  end
+  def after_update  
+    add_app_info("#{self.class}  #{self.to_s} updated") if track? self
+    super
+  end
+  def track? obj
+    if obj.instance_of?(Subscriber) || obj.instance_of?(Coupon) || obj.instance_of?(Transaction) then 
+      return true
+    else
+      return false
+    end  
+  end
+end
+

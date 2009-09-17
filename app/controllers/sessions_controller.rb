@@ -50,6 +50,7 @@ class SessionsController < ApplicationController
     new_cookie_flag = (params[:remember_me] == "1")
     handle_remember_cookie! new_cookie_flag
     redirect_back_or_default(root_path)
+    add_app_info("#{self.current_user.login} logged in.")
     flash[:notice] = "Logged in successfully"
   end
 

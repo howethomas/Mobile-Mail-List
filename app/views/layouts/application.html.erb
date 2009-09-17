@@ -24,13 +24,12 @@
 	      <div class="span-16 colborder">
 	        <h3 style="text-align: center">
 	        <%= link_to "Home", { :action => "index", :controller => "dashboard"} %> &nbsp;
-	        <%= link_to "Subscribers", { :action => "index", :controller => "dashboard"} %> &nbsp;
-	        <%= link_to "Coupons", { :action => "index", :controller => "dashboard"} %> &nbsp;
-	        <%= link_to "Settings", { :action => "index", :controller => "dashboard"} %> &nbsp;
-	        <%= link_to "Help", { :action => "index", :controller => "dashboard"} %> </h3>
+	        <%= link_to "Subscribers", { :action => "index", :controller => "subscribers"} %> &nbsp;
+	        <%= link_to "Coupons", { :action => "index", :controller => "coupons"} %> &nbsp;
+	        <%= link_to "Settings", { :action => "index", :controller => "settings"} %> &nbsp;
+	        <%= link_to "Help", "http://www.lightandelectric.com" %> </h3>
 	      </div>
 	      <div class="span-7 last">
-	      	<h3 align="center"> <%= link_to "Logout" %> </h3>
 	      </div>
 		  <hr>
 	      <hr class="space">
@@ -40,7 +39,7 @@
 	      <div class="span-7 last">
 	      	<div class="span-6">      	
 		        <h3>Latest Activity</h3>
-		        <% activity = AppInfo.find(:all, :order => "created_at DESC", :limit => 20) %>
+		        <% activity = AppInfo.find(:all, :order => "created_at DESC", :limit => 10) %>
 		        <ul>
 		        	<% for a in activity %>
 		        		<li> <b> <%= a.created_at %></b> <br> <%= a.msg %> </li>

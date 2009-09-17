@@ -2,8 +2,7 @@ class SubscribersController < ApplicationController
   # GET /subscribers
   # GET /subscribers.xml
   def index
-    @subscribers = Subscriber.find(:all)
-
+    @subscribers = Subscriber.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 25
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @subscribers }

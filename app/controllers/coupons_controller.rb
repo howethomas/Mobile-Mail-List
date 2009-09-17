@@ -2,7 +2,7 @@ class CouponsController < ApplicationController
   # GET /coupons
   # GET /coupons.xml
   def index
-    @coupons = Coupon.find(:all)
+    @coupons = Coupon.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 25
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,7 +41,8 @@ class CouponsController < ApplicationController
   # POST /coupons.xml
   def create
     @coupon = Coupon.new(params[:coupon])
-
+    @coupon.generate_coupon_code if @coupon.coupon_code.nil?
+    
     respond_to do |format|
       if @coupon.save
         flash[:notice] = 'Coupon was successfully created.'

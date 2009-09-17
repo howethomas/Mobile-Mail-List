@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
     a=Clickatell.new(caller_id,to_number,msg)
     a.login!
     a.send!
-  end
-  
+  end  
 end
 
