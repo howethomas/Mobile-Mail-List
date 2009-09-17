@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Mobile Mail List</title>
+
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/stylesheets/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <!-- Import fancy-type plugin for the sample page. -->
+    <link rel="stylesheet" href="/stylesheets/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mobile Mail List</h1>
+      <hr>
+      <h2 class="alt">Connect with your customers on the go!</h2>
+      <hr>
+		<% if logged_in? %>
+	      <div class="span-16 colborder">
+	        <h3 style="text-align: center">
+	        <%= link_to "Home", { :action => "index", :controller => "dashboard"} %> &nbsp;
+	        <%= link_to "Subscribers", { :action => "index", :controller => "dashboard"} %> &nbsp;
+	        <%= link_to "Coupons", { :action => "index", :controller => "dashboard"} %> &nbsp;
+	        <%= link_to "Settings", { :action => "index", :controller => "dashboard"} %> &nbsp;
+	        <%= link_to "Help", { :action => "index", :controller => "dashboard"} %> </h3>
+	      </div>
+	      <div class="span-7 last">
+	      	<h3 align="center"> <%= link_to "Logout" %> </h3>
+	      </div>
+		  <hr>
+	      <hr class="space">
+	      <div class="span-15 prepend-1 colborder">
+	      	<%= yield %>
+	      </div>
+	      <div class="span-7 last">
+	      	<div class="span-6">      	
+		        <h3>Latest Activity</h3>
+		        <% activity = AppInfo.find(:all, :order => "created_at DESC", :limit => 20) %>
+		        <ul>
+		        	<% for a in activity %>
+		        		<li> <b> <%= a.created_at %></b> <br> <%= a.msg %> </li>
+		    		<% end %>    		
+		        </ul>	
+	      	</div>
+	      	<div class="span-6 last"> 
+		        <h6>About This Application</h6>
+		        <p>The Mobile Mail List Application was written by Thomas Howe and sponsored by <%= link_to "Voxeo", "http://www.voxeo.com" %>, those 			neat people who brought you <%= link_to "Tropo", "http://www.tropo.com" %>. For support, custom engineering and good advice,
+	    	    please visit us at <%= link_to "Light and Electric", "http://www.lightandelectric.com" %>. 
+	        	</p>
+	      	</div>
+	      </div>
+		<% else %>
+			<%= yield %>
+		<% end %>
+      <div align="center">
+	      <hr>
+	        <%= mail_to("ticket+thomashowe.37561-thgpkb2q@lighthouseapp.com", "Found a bug?", :cc => "howethomas@aol.com") %>
+	        | Powered by <%= link_to "Rails", "http://rubyonrails.org" %> 
+	        and <%= link_to "Howe", "http://www.thethomashowecompany.com" %>
+	        | <%= logout %>
+	        | <%= link_to "Home", root_url %>
+	        | <%= "logged in as #{current_user.login}" if logged_in? %>
+	      <hr>
+      </div>
+    </div>
+  </body>
+</html>

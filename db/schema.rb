@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090915223943) do
+ActiveRecord::Schema.define(:version => 20090916185756) do
+
+  create_table "app_infos", :force => true do |t|
+    t.text     "msg"
+    t.integer  "severity"
+    t.string   "controller"
+    t.integer  "site"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "coupons", :force => true do |t|
     t.string   "name"

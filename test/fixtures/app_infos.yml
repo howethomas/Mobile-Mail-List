@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  msg: MyText
+  severity: 1
+  controller: MyString
+  site: 1
+
+two:
+  msg: MyText
+  severity: 1
+  controller: MyString
+  site: 1

@@ -1,33 +1,59 @@
+
 <%= title "Login", :h2 %>
-<% form_tag session_path do %>
+
+<div class="container">
+  <div class="span-7 border" id="login"> 
+	<% form_tag session_path do %>
+		<fieldset>
+			<legend>Your Details!</legend>
+			<ol>
+				<li>
+					<%= label_tag 'login', 'Username' %>
+					<%= text_field_tag 'login', @login %>
+				</li>
+				<li>
+					<%= label_tag 'password' %>
+					<%= password_field_tag 'password', nil %>
+				</li>
+				<li>
+					<%= label_tag 'remember_me', 'Remember me' %>
+					<%= check_box_tag 'remember_me', '1', @remember_me %>
+				</li>
+			</ol>
+		</fieldset>
+		<fieldset>
+			<legend>Login with OpenID</legend>
+			<ol>
+				<li>
+					<%= label_tag 'openid_url', 'OpenID URL' %>
+					<%= text_field_tag 'openid_url' %>
+				</li>
+			</ol>
+		</fieldset>
+		<div class="buttons">
+			<%= submit_tag 'Login' %>
+			<%= link_to 'Did you forget your password?', forgot_password_path %>
+		</div>
+	<% end -%>	
+  </div>
+  <div class="span-6 border" id="forgot_password"> 
 	<fieldset>
-		<legend>Your Details</legend>
-		<ol>
-			<li>
-				<%= label_tag 'login', 'Username' %>
-				<%= text_field_tag 'login', @login %>
-			</li>
-			<li>
-				<%= label_tag 'password' %>
-				<%= password_field_tag 'password', nil %>
-			</li>
-			<li>
-				<%= label_tag 'remember_me', 'Remember me' %>
-				<%= check_box_tag 'remember_me', '1', @remember_me %>
-			</li>
-		</ol>
+		<legend> Sign Up! </legend>
+		Signing up is free and easy....<p>
+		<%= link_to 'Sign up for our service', signup_path %>
 	</fieldset>
+  </div>
+  <div class="span-7 append-4 border last"> 
 	<fieldset>
-		<legend>Login with OpenID</legend>
-		<ol>
-			<li>
-				<%= label_tag 'openid_url', 'OpenID URL' %>
-				<%= text_field_tag 'openid_url' %>
-			</li>
-		</ol>
+		<legend>
+			About this Application
+		</legend>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		
 	</fieldset>
-	<div class="buttons">
-		<%= submit_tag 'Login' %>
-		<%= link_to 'Forgotten Password', forgot_password_path %>
-	</div>
-<% end -%>
+	
+  </div>
+</div>
+
+
+

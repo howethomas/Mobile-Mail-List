@@ -1,38 +1,51 @@
 <% @user.password = @user.password_confirmation = nil %>
 <%= title "Signup", :h2 %>
-<% form_for @user do |f| %>
-	<%= f.error_messages %>
-	<fieldset>
-		<legend>Your Details</legend>
-		<ol>
-			<li>
-				<%= f.label :login, 'Username' %>
-				<%= f.text_field :login %>
-			</li>
-			<li>
-				<%= f.label :email %>
-				<%= f.text_field :email %>
-			</li>
-			<li>
-				<%= f.label :password %>
-				<%= f.password_field :password %>
-			</li>
-			<li>
-				<%= f.label :password_confirmation, 'Confirm Password' %>
-				<%= f.password_field :password_confirmation %>
-			</li>
-		</ol>
-	</fieldset>
-	<fieldset>
-		<legend>Signup with OpenID</legend>
-		<ol>
-			<li>
-				<label for="openid_url">OpenID URL</label>
-				<%= text_field_tag :openid_url, params[:openid_url] || params['openid.identity'] %>
-			</li>
-		</ol>
-	</fieldset>
-	<div class="buttons">
-		<%= submit_tag 'Sign up' %>
-	</div>
-<% end %>
+
+<div class="container">
+  <div class="span-12 border" id="signup"> 
+	<% form_for @user do |f| %>
+		<%= f.error_messages %>
+		<fieldset>
+			<legend>Your Details</legend>
+			<ol>
+				<li>
+					<%= f.label :login, 'Username' %>
+					<%= f.text_field :login %>
+				</li>
+				<li>
+					<%= f.label :email %>
+					<%= f.text_field :email %>
+				</li>
+				<li>
+					<%= f.label :password %>
+					<%= f.password_field :password %>
+				</li>
+				<li>
+					<%= f.label :password_confirmation, 'Confirm Password' %>
+					<%= f.password_field :password_confirmation %>
+				</li>
+			</ol>
+		</fieldset>
+		<fieldset>
+			<legend>Signup with OpenID</legend>
+			<ol>
+				<li>
+					<label for="openid_url">OpenID URL</label>
+					<%= text_field_tag :openid_url, params[:openid_url] || params['openid.identity'] %>
+				</li>
+			</ol>
+		</fieldset>
+		<div class="buttons">
+			<%= submit_tag 'Sign up' %>
+		</div>
+	<% end %>
+  </div>
+  <div class="span-7 append-5 last " id="help"> 
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	
+  </div>
+</div>
+
+
+
