@@ -43,8 +43,19 @@ class SubscribersController < ApplicationController
     respond_to do |format|
       if @subscriber.save
         flash[:notice] = 'Subscriber was successfully created.'
+        # Create a coupon for the phone
+        @coupon = Coupon.new()
+        @coupon.generate_coupon_code if @coupon.coupon_code.nil?
+        @coupon.qty = 1
+        @coupon.unique = true
+        @coupon.site_id = 1
+        @coupon.name = "SUBSCRIBER_#{@coupon.coupon_code}"
+        @coupon.subscriber_id = @subscriber.id
+        if @coupon.save then
+          puts "Created coupon"
+        end
         # Send a note to the cell phone
-        send_text_message("Thanks for signing up!", @subscriber.callerid)
+        send_text_message("Thanks for signing up! For a free gift, please give our cashiers this code #{@coupon.coupon_code}", @subscriber.callerid)
         
         format.html { redirect_to(:back) }
         format.xml  { render :xml => @subscriber, :status => :created, :location => @subscriber }
