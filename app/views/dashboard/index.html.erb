@@ -1,7 +1,45 @@
-Hi!
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<div class="container">
+  <div class="span-6 colborder" id="add_sub"> 
+	<hr>
+	<form id="dummy" action="/subscribers" method="post">
+      <fieldset class="span-5">
+        <legend>Add Subscriber</legend>
+        <p>
+          <label for="callerid">Caller ID</label><br>
+          <input type="text" class="title span-5" name="subscriber[callerid]" id="callerid" value="">
+        </p>
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <p>
+          <label for="site_id">Site ID</label><br>
+          <input type="text" class="text span-5" name="subscriber[site_id]" name="site_id" value="">
+        </p>
+        <p>
+          <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+        </p>
+      </fieldset>
+    </form>
+  </div>
+  <div class="span-6 colborder" id="redeem_coupon"> 
+	<hr>
+	<form id="dummy" action="/coupon/redeem" method="post">
+      <fieldset class="span-5">
+        <legend>Redeem Coupon</legend>
+        <p>
+          <label for="coupon_code">Coupon Code</label><br>
+          <input type="text" class="title span-5" name="coupon_code" id="coupon_code" value="">
+        </p>
+		<br><br>
+          <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+        </p>
+      </fieldset>
+    </form>
+  </div>
+	<hr class="space">
+  	<div class="clear span-12 last" id="help_text"> 
+		<h3> Need Help? </h3> 
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+</div>

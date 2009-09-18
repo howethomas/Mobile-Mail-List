@@ -13,8 +13,10 @@
 
     <!-- Import fancy-type plugin for the sample page. -->
     <link rel="stylesheet" href="/stylesheets/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<%= javascript_include_tag :defaults %>
   </head>
   <body>
+	<%= link_to_function "Fade", "new.Effect('notice_text', { Duration: 10 })" %> 
     <div class="container">
       <h1>Mobile Mail List</h1>
       <hr>
@@ -30,6 +32,11 @@
 	        <%= link_to "Help", "http://www.lightandelectric.com" %> </h3>
 	      </div>
 	      <div class="span-7 last">
+			<% unless flash[:notice].nil? %>
+				<div class="notice" id="notice_text">
+				        <%= flash[:notice] %>
+				</div>
+			<% end %>
 	      </div>
 		  <hr>
 	      <hr class="space">

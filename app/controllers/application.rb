@@ -21,6 +21,15 @@ class ApplicationController < ActionController::Base
     a=Clickatell.new(caller_id,to_number,msg)
     a.login!
     a.send!
-  end  
+  end
+  def add_app_info msg, controller = "None", site = 1, severity = "normal"
+      info = AppInfo.new
+      info.msg = msg
+      info.controller = controller
+      info.site = site
+      info.severity = severity
+      info.save
+  end
+    
 end
 

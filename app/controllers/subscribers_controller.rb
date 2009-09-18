@@ -46,7 +46,7 @@ class SubscribersController < ApplicationController
         # Send a note to the cell phone
         send_text_message("Thanks for signing up!", @subscriber.callerid)
         
-        format.html { redirect_to(@subscriber) }
+        format.html { redirect_to(:back) }
         format.xml  { render :xml => @subscriber, :status => :created, :location => @subscriber }
       else
         format.html { render :action => "new" }
