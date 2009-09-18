@@ -5,14 +5,12 @@
   <tr>
     <th>CallerID</th>
     <th>Created At</th>
-    <th>SiteID</th>
   </tr>
 
 <% for subscriber in @subscribers %>
   <tr>
     <td><%=h subscriber.callerid %></td>
     <td><%=h subscriber.created_at %></td>
-    <td><%=h subscriber.site_id %></td>
     <td><%= link_to 'Show', subscriber %></td>
     <td><%= link_to 'Edit', edit_subscriber_path(subscriber) %></td>
     <td><%= link_to 'Destroy', subscriber, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -4,18 +4,16 @@
   <tr>
     <th>Name</th>
     <th>Quantity</th>
-    <th>Site</th>
 	<th>Code</th>
-	<th>Subscriber ID</th>
+	<th>Subscriber</th>
   </tr>
 
 <% for coupon in @coupons %>
   <tr>
     <td><%=h coupon.name %></td>
     <td><%=h coupon.qty %></td>
-    <td><%=h coupon.site_id %></td>
     <td><%=h coupon.coupon_code %></td>
-    <td><%=h coupon.subscriber_id %></td>
+    <td><%= link_to coupon.subscriber_id.to_s, {:controller => :subscribers, :action => "show", :id => coupon.subscriber_id} %></td>
     <td><%= link_to 'Show', coupon %></td>
     <td><%= link_to 'Edit', edit_coupon_path(coupon) %></td>
     <td><%= link_to 'Redeem', {:controller => :coupons, :action => :redeem, :coupon_code => coupon.coupon_code} %></td>	
