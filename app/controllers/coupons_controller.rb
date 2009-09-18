@@ -83,4 +83,22 @@ class CouponsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def redeem
+    c = Coupon.find_by_coupon_code(params[:coupon_code])
+    if c.nil?
+      flash[:notice] = 'Coupon not found'
+      redirect_to :back
+    else
+      if c.qty == 0
+        flash[:notice] = 'No coupons left'
+        redirect_to :back
+      else
+        c.qty -= 1
+        c.save
+        flash[:notice] = 'Coupon redeemed'
+        redirect_to :back
+      end
+    end  
+  end
 end
