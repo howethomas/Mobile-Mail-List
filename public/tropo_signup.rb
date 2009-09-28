@@ -12,7 +12,7 @@ begin
   end
 
   SITE_ID = 1
-  COMPANY_NAME = "Hows Hat Store"
+  COMPANY_NAME = "Pams Pet Place"
   SLOGAN = "where our hats are nice"
   
   phone_number_options = { "silenceTimeout" => 30.0, :choices => '[10 DIGITS]', :repeat => 3 }  
