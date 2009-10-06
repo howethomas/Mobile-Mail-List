@@ -33,9 +33,10 @@
 	        <%= link_to "Help", "http://www.lightandelectric.com" %> </h3>
 	      </div>
 	      <div class="span-7 last">
-			<% unless flash[:notice].nil? %>
+			<% unless flash[:notice].nil? && flash[:error].nil? %>
 				<div class="notice" id="notice_text">
-				     <%= flash[:notice] %>
+				    <%= flash[:notice] %>
+					<%= flash[:error] %>
 				</div>
 			<% end %>
 	      </div>

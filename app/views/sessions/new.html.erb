@@ -3,6 +3,12 @@
 
 <div class="container">
   <div class="span-7 border" id="login"> 
+	<% unless flash[:notice].nil? && flash[:error].nil? %>
+		<div class="notice" id="notice_text">
+		    <%= flash[:notice] %>
+			<%= flash[:error] %>
+		</div>
+	<% end %>
 	<% form_tag session_path do %>
 		<fieldset>
 			<legend>Your Details!</legend>

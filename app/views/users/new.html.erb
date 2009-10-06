@@ -3,6 +3,13 @@
 
 <div class="container">
   <div class="span-12 border" id="signup"> 
+	<% unless flash[:notice].nil? && flash[:error].nil? %>
+		<div class="notice" id="notice_text">
+		    <%= flash[:notice] %>
+			<%= flash[:error] %>
+		</div>
+	<% end %>
+	
 	<% form_for @user do |f| %>
 		<%= f.error_messages %>
 		<fieldset>
